@@ -1,18 +1,13 @@
-"https://infinite-savannah-53354.herokuapp.com/api/rooms";
-
-const view = new Vue({
-  el: '#app-2',
-  data: {
-  	rooms: [],
-  	select room: 0
-    statusonl: true
-  },
-
-  methods({
-	switchLight
-
-
-	switchNoise
-
-  })
+const x = new Vue({
+    el: "#app",
+    data: {
+        rooms: [],
+    },
+    mounted() {
+        axios.get("http://localhost:8080/api/rooms")
+            .then(response => {
+                this.rooms = response.data
+                console.log( this.rooms)
+            })
+    },
 })
