@@ -1,14 +1,18 @@
-var app2 = new Vue({
+"https://infinite-savannah-53354.herokuapp.com/api/rooms";
+
+const view = new Vue({
   el: '#app-2',
   data: {
+  	rooms: [],
+  	select room: 0
     statusonl: true
-  }
-})
+  },
+
+  methods({
+	switchLight
 
 
-var app3 = new Vue({
-  el: '#app-3',
-  data: {
-    statusonn: false
-  }
+	switchNoise
+
+  })
 })

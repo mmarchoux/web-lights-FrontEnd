@@ -27,26 +27,26 @@
 
         <tbody>
           <form action=""></form>
-          <tr>
-            <td>#</td>
+          <tr v-for="room in rooms">
+            <td scope="row">{{room.id}}</td>
             <td><div id="app-2">
-              <span v-if="statusonl"><img src="img/light-on.png"> </span>
+              <span v-if="room.light.status == 'ON'"><img src="img/light-on.png"> </span>
               <span v-else><img src="img/light-off.png"> </span>
             </div></td>
-            <td>Light Level</td>
+            <td>{{room.light.level}}</td>
             <td><div id="app-3">
-              <span v-if="statusonn"><img src="img/ringer-on.png"> </span>
+              <span v-if="room.noise.status == 'ON'"><img src="img/ringer-on.png"> </span>
               <span v-else><img src="img/ringer-off.png"> </span>
             </div></td>
-            <td>Noise Level</td>
+            <td>{{room.noise.level}}</td>
             <td>
               <button class="btn btn-light">
-                <img src="img/switch.png" width="20">
+                <img src="img/switch.png" width="30">
               </button>
             </td>
             <td>
               <button class="btn btn-light">
-                <img src="img/switch.png" width="20">
+                <img src="img/switch.png" width="30">
               </button>
             </td>
           </tr>
