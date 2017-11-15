@@ -4,7 +4,7 @@ const x = new Vue({
         rooms: [],
     },
     mounted() {
-        axios.get("http://localhost:8080/api/rooms")
+        axios.get("https://infinite-savannah-53354.herokuapp.com/api/rooms")
             .then(response => {
                 this.rooms = response.data
                 console.log( this.rooms)
