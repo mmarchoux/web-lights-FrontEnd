@@ -5,7 +5,7 @@ const x = new Vue({
     },
     
     mounted() {
-        axios.get("http://localhost:8080/api/rooms")
+        axios.get("https://infinite-savannah-53354.herokuapp.com/api/rooms")
             .then(response => {
                 this.rooms = response.data
                 console.log( this.rooms)
@@ -13,13 +13,13 @@ const x = new Vue({
     },
     methods: {
        switchLight: function(room) {
-        axios.put('http://localhost:8080/api/rooms/'+room.id+'/switchlight')
+        axios.put('https://infinite-savannah-53354.herokuapp.com/api/rooms/'+room.id+'/switchlight')
             .then(response => {
             	this.rooms = response.data
             })
     },
     switchRinger: function(room) {
-        axios.put('http://localhost:8080/api/rooms/'+room.id+'/switchringer')
+        axios.put('https://infinite-savannah-53354.herokuapp.com/api/rooms/'+room.id+'/switchringer')
             .then(response => {
             	this.rooms = response.data
             })
