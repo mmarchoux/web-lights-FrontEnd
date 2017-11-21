@@ -18,7 +18,7 @@ const x = new Vue({
             	this.rooms = response.data
             })
     },
-    switchRinger: function(room) {
+        switchRinger: function(room) {
         axios.put('https://infinite-savannah-53354.herokuapp.com/api/rooms/'+room.id+'/switchringer')
             .then(response => {
             	this.rooms = response.data
