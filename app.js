@@ -5,7 +5,7 @@ const x = new Vue({
     },
     
     mounted() {
-        axios.get("https://infinite-savannah-53354.herokuapp.com/api/rooms")
+        axios.get("https://enigmatic-sands-54357.herokuapp.com/api/rooms")
             .then(response => {
                 this.rooms = response.data
                 console.log( this.rooms)
@@ -13,19 +13,17 @@ const x = new Vue({
     },
     methods: {
        switchLight: function(room) {
-        axios.put('https://infinite-savannah-53354.herokuapp.com/api/rooms/'+room.id+'/switchlight')
+        axios.put('https://enigmatic-sands-54357.herokuapp.com/api/rooms/'+room.id+'/switchlight')
             .then(response => {
             	this.rooms = response.data
             })
-    },
+        },
         switchRinger: function(room) {
-        axios.put('https://infinite-savannah-53354.herokuapp.com/api/rooms/'+room.id+'/switchringer')
+        axios.put('https://enigmatic-sands-54357.herokuapp.com/api/rooms/'+room.id+'/switchringer')
             .then(response => {
             	this.rooms = response.data
             })
+        }
     }
-
-
-}
 
 })

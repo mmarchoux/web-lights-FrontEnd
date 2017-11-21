@@ -12,16 +12,19 @@
           
 <body>
 <div class="container" id="app1">
-    <form action=""></form>
+    <form method="POST" action="switchLight(room)"></form>
     <p>
+      <div> Select a room to turn its light off</div>
          <select v-model="selected" class="room">
-            <option disabled value="">Please select one</option>
-            <option v-for="room in rooms" value="room">
+            <option disabled value="">Please select one </option>
+            <option v-for="room in rooms" onchange="switchLight(room)">
+              <!--value="room"-->
               {{ room.id }}</option>
          </select>
-         <span>Selected: {{ selected }}</span>
+         <span> </span>
 
-         <input type="submit" value="Go" title="valider pour éteindre la pièce sélectionnée" @click="switchLight(room)"/>
+         <input type="submit" value="Turn off" title="valid to turn the light off in this room">
+         <!--onlick="switchLight(room)"-->
 
     </p>
     </form>
