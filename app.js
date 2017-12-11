@@ -1,4 +1,4 @@
-const x = new Vue({
+const v = new Vue({
     el: "#app",
     data: {
         rooms: [],
@@ -27,3 +27,6 @@ const x = new Vue({
     }
 
 })
+
+
+
