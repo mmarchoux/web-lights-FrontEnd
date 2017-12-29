@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Switch Light</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+          
+
+</head>
+<body>
+</br>
+<div class="container" id="switchL">
+    <h3 class="text-center">Switch your light</h3>
+
+    <div>
+        <h5>Switch Light of a Room</h5>
+        </br>
+        <form action=" "></form>
+        <p>Choose Rooms with Light : 
+            <select v-model="state1">
+                <option disabled value="">Please select one</option>
+                <option>ON</option>
+                <option>OFF</option>
+            </select>
+
+            </br>
+            Pick the number of the Room with Light '{{ state1 }}'
+            you want to Switch the Light :
+
+            <select v-model="room">
+                    <option disabled value="">Please select a room</option>
+                    <option v-if="state1 === 'ON'" v-for="room in roomsOn">{{ room.id }}
+                    </option>
+                    <option v-else v-for="room in roomsOff">{{ room.id }}
+                    </option>
+                </select>
+
+        </p></form>
+        </br>
+
+        <p>Switch its Light : 
+            <button @click="switchLight(room)" class="btn btn-light"><img src="img/switch.png" width="20" /></button>
+        </p>
+    </div>
+    </br>
+    </br>
+
+
+    <div>
+        <h5>Switch all the Lights (of all the Rooms of the Buildings)</h5>
+        </br>
+        <p>Switch all the Rooms with Lights : 
+            <select v-model="state2">
+                <option disabled value="">Please select one</option>
+                <option>ON</option>
+                <option>OFF</option>
+            </select>
+        </p>
+        <p v-if="state2 === 'ON'">
+            Switch 'OFF' all the Rooms with Lights '{{ state2 }}'
+        </p>
+        <p v-else-if="state2 === 'OFF'">
+            Switch 'ON' all the Rooms with Lights '{{ state2 }}'
+        </p>
+        <p v-else>
+            Switch '' all the Rooms with Lights ''
+        </p>
+        </br>
+
+        <p>Switch its Light : 
+            <button @click="switchAllLights(state2)" class="btn btn-light"><img src="img/switch.png" width="20" /></button>
+        </p>
+
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="switchLight.js"></script>
+
+
+</body>
+</html>
