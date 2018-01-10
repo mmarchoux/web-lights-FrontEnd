@@ -6,15 +6,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           
 
 </head>
 <body>
-<div class="container" id="app">
-    <h3 class="text-center">List of Rooms</h3>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Managing lights and ringers</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="navbar.html">Home</a></li>
+          <li><a href="buildings.html">Buildings</a></li>
+          <li class="active"><a href="app.html">Rooms</a></li>
+          <li><a href="switchLight.html">Switch Light</a></li>
+          <li><a href="switchRinger.html">Switch Ringer</a></li>
+        </ul>
+      </div>
+    </nav>
 
+<div class="container" id="app">
+    <h1 class="text-center">List of Rooms</h1>
+    <br>
     <table class="table">
         <thead>
         <tr>
@@ -31,12 +47,12 @@
         <form action=""></form>
         <tr v-for="room in rooms">
             <th scope="row">{{ room.id }}</th>
-            <td><div v-if="room.light.status == 'ON'"><img src="img/light-on.png"></div>
-                <div v-else-if="room.light.status == 'OFF'"><img src="img/light-off.png"></div>
+            <td><div v-if="room.light.status == 'ON'"><img src="img/light-on.png" width="40" ></div>
+                <div v-else-if="room.light.status == 'OFF'"><img src="img/light-off.png" width="40" ></div>
             </td>
             <td>{{ room.light.level }}</td>
-            <td><div v-if="room.noise.status == 'ON'"><img src="img/ringer-on.png"></div>
-                <div v-else-if="room.noise.status == 'OFF'"><img src="img/ringer-off.png"></div>
+            <td><div v-if="room.noise.status == 'ON'"><img src="img/ringer-on.png" width="40" ></div>
+                <div v-else-if="room.noise.status == 'OFF'"><img src="img/ringer-off.png" width="40" ></div>
             <td>{{ room.noise.level }}</td>
             <td><button @click="switchLight(room)" class="btn btn-light">
                 <img src="img/switch.png" width="20" /></button></td>
@@ -47,6 +63,12 @@
     </table>
 <br>
 </div>
+
+<div class="navbar navbar-fixed-bottom">
+        <span class="text-muted">Designed and built by Kassi Ahmed and Marchoux Mathilde</span>
+        <a href="https://github.com/mmarchoux/web-lights-FrontEnd">GitHub</a>
+</div>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

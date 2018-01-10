@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Switch Ringer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Managing lights and ringers</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="navbar.html">Home</a></li>
+          <li><a href="buildings.html">Buildings</a></li>
+          <li><a href="app.html">Rooms</a></li>
+          <li><a href="switchLight.html">Switch Light</a></li>
+          <li class="active"><a href="switchRinger.html">Switch Ringer</a></li>
+        </ul>
+      </div>
+    </nav>
+
+<div class="container" id="switchR">
+    <h1 class="text-center">Switch your ringer</h1>
+
+    <div>
+        <h3>Switch Ringer of a Room</h3>
+        </br>
+        <p>Choose Rooms with Ringer : 
+            <select v-model="state1">
+                <option disabled value="">Please select one</option>
+                <option>ON</option>
+                <option>OFF</option>
+            </select>
+
+            </br>
+            Pick the number of the Room with Ringer '{{ state1 }}'
+            you want to Switch the Ringer :
+            
+            <select v-model="room">
+                    <option disabled value="">Please select a room</option>
+                    <option v-if="state1 === 'ON'" v-for="room in roomsOn">{{ room.id }}
+                    </option>
+                    <option v-else v-for="room in roomsOff">{{ room.id }}
+                    </option>
+                </select>
+
+        </p></form>
+        </br>
+
+        <p>Switch its Ringer : 
+            <button @click="switchRinger(room)" class="btn btn-light"><img src="img/switch.png" width="20" /></button>
+        </p>
+    </div>
+    </br>
+    </br>
+
+
+    <div>
+        <h3>Switch all the ringers (of all the Rooms of the Buildings)</h3>
+        </br>
+        <p>Switch all the Rooms with Ringers : 
+            <select v-model="state2">
+                <option disabled value="">Please select one</option>
+                <option>ON</option>
+                <option>OFF</option>
+            </select>
+        </p>
+        <p v-if="state2 === 'ON'">
+            Switch 'OFF' all the Rooms with Ringers '{{ state2 }}'
+        </p>
+        <p v-else-if="state2 === 'OFF'">
+            Switch 'ON' all the Rooms with Ringers '{{ state2 }}'
+        </p>
+        <p v-else>
+            Switch '' all the Rooms with Ringers ''
+        </p>
+        </br>
+
+        <p>Switch its Ringer : 
+            <button @click="switchAllRingers(state2)" class="btn btn-light"><img src="img/switch.png" width="20" /></button>
+        </p>
+
+    </div>
+
+</div>
+
+<div class="navbar navbar-fixed-bottom">
+        <span class="text-muted">Designed and built by Kassi Ahmed and Marchoux Mathilde</span>
+        <a href="https://github.com/mmarchoux/web-lights-FrontEnd">GitHub</a>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="switchRinger.js"></script>
+
+
+</body>
+</html>
