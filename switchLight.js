@@ -71,4 +71,3 @@ const v2 = new Vue({
         }
     }
 
-})
