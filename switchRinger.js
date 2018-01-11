@@ -1,39 +1,39 @@
-const v2 = new Vue({
-    el: "#switchL",
+const v1 = new Vue({
+    el: "#switchR",
     data: {
         state1: '',
         state2: '',
-        room: '',
         rooms: [],
         roomsOn: [],
         roomsOff: [],
     },
     
     mounted() {
-        axios.get('https://enigmatic-sands-54357.herokuapp.com/api/rooms')
+        axios.get("https://enigmatic-sands-54357.herokuapp.com/api/rooms")
             .then(response => {
                 this.rooms = response.data
-                console.log(this.rooms)
+                console.log( this.rooms)
             }),
 
-        axios.get('https://enigmatic-sands-54357.herokuapp.com/api/rooms/list-with-on-light')
+        axios.get("https://enigmatic-sands-54357.herokuapp.com/api/rooms/list-with-on-noise")
             .then(response => {
                 this.roomsOn = response.data
-                console.log(this.roomsOn)
+                console.log( this.roomsOn)
             }),
 
 
-        axios.get('https://enigmatic-sands-54357.herokuapp.com/api/rooms/list-with-off-light')
+        axios.get("https://enigmatic-sands-54357.herokuapp.com/api/rooms/list-with-off-noise")
             .then(response => {
             this.roomsOff = response.data
-        console.log(this.roomsOff)
+        console.log( this.roomsOff)
     })
 
     },
 
 
     methods: {
-        switchAllLights: function(state) {
+        switchAllRingers: function(state) {
+
 
             //select the list corresponding to the state
             if(state === 'ON'){
@@ -46,7 +46,7 @@ const v2 = new Vue({
             //make the request
             for(var i = 0; i<listRooms.length; i++){
                 var room = listRooms[i];
-                axios.put('https://enigmatic-sands-54357.herokuapp.com/api/rooms/'+room.id+'/switchlight',{})
+                axios.put('https://enigmatic-sands-54357.herokuapp.com/api/rooms/'+room.id+'/switchringer',{})
                 .then(response => {
                     this.rooms = response.data
                 })
@@ -58,10 +58,10 @@ const v2 = new Vue({
         },
 
 
-        switchLight: function(room) {
+        switchRinger: function(room){
 
             //make the request
-            axios.put('https://enigmatic-sands-54357.herokuapp.com/api/rooms/'+room+'/switchlight',{})
+            axios.put('https://enigmatic-sands-54357.herokuapp.com/api/rooms/'+room+'/switchringer',{})
             .then(response => {
                 this.rooms = response.data
             })
@@ -69,5 +69,7 @@ const v2 = new Vue({
             //reload the page to update, I haven't found how to only update the dropdown menus
             window.location.reload(false);
         }
-    }
+    },
 
+
+})
